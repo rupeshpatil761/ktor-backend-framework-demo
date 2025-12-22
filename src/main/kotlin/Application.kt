@@ -1,5 +1,7 @@
 package com.rupesh
 
+import com.rupesh.plugins.configureResources
+import com.rupesh.plugins.configureRouting
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
@@ -7,5 +9,7 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
+   // resources should be configured before routing
+    configureResources()
     configureRouting()
 }
