@@ -1,0 +1,17 @@
+A full guide to MongoDB with Kotlin coroutines in Ktor
+https://www.youtube.com/watch?v=WmURqVIWZeQ
+
+Ktor From the Ground Up
+https://www.youtube.com/watch?v=WlvK6zYo8Sw
+
+The Ultimate Guide to Koin (Dependency Injection with Kotlin) - Android Studio Tutorial
+https://www.youtube.com/watch?v=EathumJlWh8
+
+Full Guide to Dependency Injection With Koin for Compose Multiplatform - KMP for Beginners
+https://www.youtube.com/watch?v=TAKZy3uQTdE
+
+Koin Crash Course | Simplified Guide for Android Beginners!
+https://www.youtube.com/watch?v=URBfyG3MDkI&t=427s
+
+Ktor Server Fundamentals
+https://www.youtube.com/watch?v=-l9jRNkl78Y&list=PL3_Xm4wcQKw1DCU1lPSVhuCMYHg-pLVKI&index=2
