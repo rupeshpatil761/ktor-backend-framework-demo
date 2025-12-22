@@ -4,6 +4,7 @@ import io.ktor.http.HttpMethod
 import io.ktor.resources.Resource
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
+import io.ktor.server.resources.delete
 import io.ktor.server.resources.get
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.RoutingRoot
@@ -41,6 +42,12 @@ fun Application.configureRouting() {
         get<Blogs> {blogs ->
             val sort = blogs.sort
             call.respondText ( "Sort order is $sort")
+        }
+
+        delete<Blogs.Blog> { blog ->
+            val id = blog.id;
+            val sort = blog.parent.sort
+            call.respondText { "Delete request for blog id: $id and sort order is : $sort" }
         }
 
     }
