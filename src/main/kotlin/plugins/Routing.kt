@@ -1,18 +1,22 @@
 package com.rupesh.plugins
 
 import io.ktor.http.HttpMethod
+import io.ktor.http.HttpStatusCode
 import io.ktor.resources.Resource
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
+import io.ktor.server.request.receiveNullable
 import io.ktor.server.resources.delete
 import io.ktor.server.resources.get
+import io.ktor.server.response.respond
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.Route
 import io.ktor.server.routing.RoutingRoot
 import io.ktor.server.routing.get
+import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import io.ktor.server.routing.routing
-
+import kotlinx.serialization.Serializable
 
 fun Application.configureRouting() {
 
@@ -43,8 +47,26 @@ fun Application.configureRouting() {
 
         nestedRoutes();
 
+        handlingJsonObject()
+
     }
 }
+
+private fun Route.handlingJsonObject() {
+
+    post("product") {
+        val product = call.receiveNullable<Product>() ?:
+            return@post call.respond(HttpStatusCode.BadRequest)
+        call.respond(product)
+    }
+}
+
+@Serializable
+data class Product (
+    val name: String,
+    val category: String,
+    val price: Int
+)
 
 // Example
 // GET /accounts/users
