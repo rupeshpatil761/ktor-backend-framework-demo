@@ -1,8 +1,10 @@
 package com.rupesh
 
+import com.rupesh.plugins.configureRequestValidation
 import com.rupesh.plugins.configureResources
 import com.rupesh.plugins.configureRouting
 import com.rupesh.plugins.configureSerialization
+import com.rupesh.plugins.configureStatusPages
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
@@ -14,4 +16,6 @@ fun Application.module() {
     configureResources()
     configureRouting()
     configureSerialization()
+    configureStatusPages()
+    configureRequestValidation()
 }
