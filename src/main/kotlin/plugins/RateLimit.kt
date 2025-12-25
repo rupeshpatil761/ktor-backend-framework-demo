@@ -2,6 +2,7 @@ package com.rupesh.plugins
 
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
+import io.ktor.server.plugins.origin
 import io.ktor.server.plugins.ratelimit.RateLimit
 import io.ktor.server.plugins.ratelimit.RateLimitName
 import kotlin.time.Duration.Companion.seconds
@@ -33,6 +34,11 @@ fun Application.configureRateLimit() {
                     else -> 1
                 }
             }
+        }
+
+        register(RateLimitName("per_ip")) {
+            rateLimiter(limit = 5, refillPeriod = 10.seconds)
+            requestKey { call -> call.request.origin.remoteHost } // Keyed by IP
         }
     }
 }

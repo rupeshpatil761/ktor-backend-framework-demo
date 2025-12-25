@@ -1,6 +1,7 @@
 package com.rupesh.routes
 
 import com.rupesh.request.CreateProductRequest
+import io.ktor.server.plugins.origin
 import io.ktor.server.plugins.ratelimit.RateLimitName
 import io.ktor.server.plugins.ratelimit.rateLimit
 import io.ktor.server.request.receive
@@ -29,6 +30,14 @@ fun Route.requestValidationExample() {
             val queryParam1 = call.queryParameters["type"]
             val requestLeft = call.response.headers["X-RateLimit-Remaining"]
             call.respondText { "Return product with type: $queryParam1 and request left: $requestLeft "}
+        }
+    }
+
+    rateLimit(RateLimitName("per_ip")) {
+        get("/products") {
+            val ip = call.request.origin.remoteHost
+            val requestLeft = call.response.headers["X-RateLimit-Remaining"]
+            call.respondText { "Return all product for source IP: $ip  and request left: $requestLeft "}
         }
     }
 
