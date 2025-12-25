@@ -8,12 +8,18 @@ import io.ktor.server.application.install
 import io.ktor.server.plugins.requestvalidation.RequestValidationException
 import io.ktor.server.plugins.statuspages.StatusPages
 import io.ktor.server.response.respond
+import io.ktor.server.response.respondText
 import org.slf4j.LoggerFactory
 
 private val logger = LoggerFactory.getLogger("ApplicationLogger")
 
 fun Application.configureStatusPages() {
     install(StatusPages) {
+        status(HttpStatusCode.TooManyRequests) {
+            call, status ->
+            val retryAfter = call.response.headers["Retry-After"]
+            call.respondText(text = "429: Too Many Requests. Wait for $retryAfter seconds", status = status)
+        }
         exception<RequestValidationException>(::validationBadRequestResponse)
         exception<Throwable>(::genericExceptionResponse)
     }
