@@ -1,6 +1,7 @@
 package com.rupesh.plugins
 
 import com.rupesh.routes.handlingJsonObject
+import com.rupesh.routes.mediaRoutes
 import com.rupesh.routes.nestedRoutes
 import com.rupesh.routes.pathAndQueryParmsRoutes
 import com.rupesh.routes.requestValidationExample
@@ -43,6 +44,8 @@ fun Application.configureRouting() {
         handlingJsonObject()
 
         requestValidationExample()
+
+        mediaRoutes()
 
     }
 }
