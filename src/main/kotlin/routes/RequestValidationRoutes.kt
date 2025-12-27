@@ -40,6 +40,4 @@ fun Route.requestValidationExample() {
             call.respondText { "Return all product for source IP: $ip  and request left: $requestLeft "}
         }
     }
-
-
 }

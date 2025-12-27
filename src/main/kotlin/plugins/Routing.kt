@@ -1,5 +1,6 @@
 package com.rupesh.plugins
 
+import com.rupesh.routes.authenticatedRoutes
 import com.rupesh.routes.handlingJsonObject
 import com.rupesh.routes.mediaRoutes
 import com.rupesh.routes.nestedRoutes
@@ -46,6 +47,8 @@ fun Application.configureRouting() {
         requestValidationExample()
 
         mediaRoutes()
+
+        authenticatedRoutes()
 
     }
 }

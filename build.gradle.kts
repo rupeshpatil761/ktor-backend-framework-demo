@@ -25,4 +25,5 @@ dependencies {
     implementation(libs.ktor.server.status.pages)
     implementation(libs.ktor.server.request.validation)
     implementation(libs.ktor.server.rate.limit)
+    implementation(libs.ktor.server.auth)
 }

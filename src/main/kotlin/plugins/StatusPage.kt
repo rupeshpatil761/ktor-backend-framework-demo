@@ -22,6 +22,10 @@ fun Application.configureStatusPages() {
         }
         exception<RequestValidationException>(::validationBadRequestResponse)
         exception<Throwable>(::genericExceptionResponse)
+        status(HttpStatusCode.Unauthorized) {
+            call, status ->
+            call.respondText(text = "401: Unauthorized User", status = status)
+        }
     }
 }
 

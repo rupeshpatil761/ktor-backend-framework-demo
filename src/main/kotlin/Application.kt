@@ -1,5 +1,6 @@
 package com.rupesh
 
+import com.rupesh.plugins.configureBasicAuthentication
 import com.rupesh.plugins.configureRateLimit
 import com.rupesh.plugins.configureRequestValidation
 import com.rupesh.plugins.configureResources
@@ -16,6 +17,7 @@ fun Application.module() {
    // resources and rate-limit should be configured before routing
     configureResources()
     configureRateLimit()
+    configureBasicAuthentication()
     configureRouting()
     configureSerialization()
     configureStatusPages()
