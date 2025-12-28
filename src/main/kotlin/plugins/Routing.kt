@@ -1,6 +1,8 @@
 package com.rupesh.plugins
 
+import com.rupesh.model.JwtConfig
 import com.rupesh.routes.authenticatedRoutes
+import com.rupesh.routes.configureUserMgmtRoutes
 import com.rupesh.routes.handlingJsonObject
 import com.rupesh.routes.mediaRoutes
 import com.rupesh.routes.nestedRoutes
@@ -16,7 +18,7 @@ import io.ktor.server.routing.get
 import io.ktor.server.routing.route
 import io.ktor.server.routing.routing
 
-fun Application.configureRouting() {
+fun Application.configureRouting(jwtConfig: JwtConfig) {
 
     // explicit plugin installation. Avoid using this approach
     install(RoutingRoot) {
@@ -49,6 +51,8 @@ fun Application.configureRouting() {
         mediaRoutes()
 
         authenticatedRoutes()
+
+        configureUserMgmtRoutes(jwtConfig)
 
     }
 }
