@@ -1,6 +1,7 @@
 package com.rupesh
 
 import com.rupesh.plugins.configureBasicAuthentication
+import com.rupesh.plugins.configureBearerAuth
 import com.rupesh.plugins.configureRateLimit
 import com.rupesh.plugins.configureRequestValidation
 import com.rupesh.plugins.configureResources
@@ -17,7 +18,9 @@ fun Application.module() {
    // resources and rate-limit should be configured before routing
     configureResources()
     configureRateLimit()
-    configureBasicAuthentication()
+    // Note: At a time only one authentication plugin can be installed
+    //configureBasicAuthentication()
+    configureBearerAuth()
     configureRouting()
     configureSerialization()
     configureStatusPages()
