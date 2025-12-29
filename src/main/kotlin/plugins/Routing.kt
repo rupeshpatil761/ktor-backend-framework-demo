@@ -9,6 +9,7 @@ import com.rupesh.routes.nestedRoutes
 import com.rupesh.routes.pathAndQueryParmsRoutes
 import com.rupesh.routes.requestValidationExample
 import com.rupesh.routes.typeSafeRoutes
+import com.rupesh.routes.websocketRoutes
 import io.ktor.http.HttpMethod
 import io.ktor.server.application.Application
 import io.ktor.server.application.install
@@ -53,6 +54,8 @@ fun Application.configureRouting(jwtConfig: JwtConfig) {
         authenticatedRoutes()
 
         configureUserMgmtRoutes(jwtConfig)
+
+        websocketRoutes()
 
     }
 }

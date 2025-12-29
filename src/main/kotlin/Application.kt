@@ -10,6 +10,7 @@ import com.rupesh.plugins.configureResources
 import com.rupesh.plugins.configureRouting
 import com.rupesh.plugins.configureSerialization
 import com.rupesh.plugins.configureStatusPages
+import com.rupesh.plugins.configureWebsockets
 import io.ktor.server.application.*
 import io.ktor.server.config.ApplicationConfig
 
@@ -28,6 +29,7 @@ fun Application.module() {
     //configureBasicAuthentication()
     //configureBearerAuth()
     configureJwtAuth(jwtConfig)
+    configureWebsockets()
     configureRouting(jwtConfig)
     configureSerialization()
     configureStatusPages()
