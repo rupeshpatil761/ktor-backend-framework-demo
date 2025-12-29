@@ -9,6 +9,7 @@ import com.rupesh.plugins.configureRequestValidation
 import com.rupesh.plugins.configureResources
 import com.rupesh.plugins.configureRouting
 import com.rupesh.plugins.configureSerialization
+import com.rupesh.plugins.configureShutDownURL
 import com.rupesh.plugins.configureStatusPages
 import com.rupesh.plugins.configureWebsockets
 import io.ktor.server.application.*
@@ -34,6 +35,7 @@ fun Application.module() {
     configureSerialization()
     configureStatusPages()
     configureRequestValidation()
+    configureShutDownURL()
 }
 
 
