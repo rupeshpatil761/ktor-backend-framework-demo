@@ -3,6 +3,7 @@ package com.rupesh
 import com.rupesh.model.JwtConfig
 import com.rupesh.plugins.configureBasicAuthentication
 import com.rupesh.plugins.configureBearerAuth
+import com.rupesh.plugins.configureCallLogging
 import com.rupesh.plugins.configureJwtAuth
 import com.rupesh.plugins.configureRateLimit
 import com.rupesh.plugins.configureRequestValidation
@@ -22,6 +23,8 @@ fun main(args: Array<String>) {
 fun Application.module() {
 
     val jwtConfig = getJwtConfig(environment.config.config("ktor.jwt"))
+
+    configureCallLogging()
 
    // resources and rate-limit should be configured before routing
     configureResources()
