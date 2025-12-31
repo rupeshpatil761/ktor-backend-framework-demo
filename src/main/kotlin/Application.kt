@@ -4,6 +4,7 @@ import com.rupesh.model.JwtConfig
 import com.rupesh.plugins.configureBasicAuthentication
 import com.rupesh.plugins.configureBearerAuth
 import com.rupesh.plugins.configureCallLogging
+import com.rupesh.plugins.configureCustomHeader
 import com.rupesh.plugins.configureJwtAuth
 import com.rupesh.plugins.configureRateLimit
 import com.rupesh.plugins.configureRequestValidation
@@ -39,6 +40,7 @@ fun Application.module() {
     configureStatusPages()
     configureRequestValidation()
     configureShutDownURL()
+    configureCustomHeader()
 }
 
 
